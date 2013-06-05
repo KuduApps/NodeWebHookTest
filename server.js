@@ -30,7 +30,7 @@ http.createServer(function (req, res) {
       res.end(resultHtml);
     } catch (e) {
       res.writeHead(500, { 'Content-Type': 'text/html' });
-      res.end(e);
+      res.end(e.message);
     }
   }
 }).listen(process.env.PORT);

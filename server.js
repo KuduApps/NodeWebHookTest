@@ -1,7 +1,13 @@
 var http = require('http');
 var fs = require('fs');
+var path = require('path');
 
-var resultFileName = 'result.txt';
+var appDataDir = path.join(__dirname, '/App_Data');
+if (!fs.existsSync(appDataDir)) {
+  fs.mkdirSync(appDataDir);
+}
+
+var resultFileName = path.join(appDataDir, '/result.txt');
 
 http.createServer(function (req, res) {
   if (req.method == 'POST') {
